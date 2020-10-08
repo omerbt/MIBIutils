@@ -1,6 +1,7 @@
 from mibidata import tiff
 import skimage.io as io
 import glob
+import sys
 import os
 
 
@@ -26,14 +27,14 @@ def extract_single_channels_from_mibitiff(data_dir, mibitiff_files=None):
         mibitiff_files = [os.path.join(data_dir, point + '.tiff')
                           for point in mibitiff_files]
 
-    dtype = io.imread(os.path.join(data_dir, mibitiff_files[0]), plugin='tifffile').dtype
+    dtype = io.imread(mibitiff_files[0], plugin='tifffile').dtype
 
     # extract images from MIBItiff file
     channel_tuples = tiff.read(mibitiff_files[0]).channels
     channels = [channel_tuple[1] for channel_tuple in channel_tuples]
 
     for mibitiff_file in mibitiff_files:
-        file_path = os.path.join(data_dir, mibitiff_file)
+        file_path = mibitiff_file
         save_dir = os.path.join(mibitiff_file.rsplit('.tiff', 1)[0], 'single_channel_TIFs')
         if not os.path.isdir(save_dir):
             os.makedirs(save_dir)
@@ -42,3 +43,7 @@ def extract_single_channels_from_mibitiff(data_dir, mibitiff_files=None):
             single_channel_image = mibitiff_img[:, :, channel]
             save_path = os.path.join(save_dir, f'{channel}.tif')
             io.imsave(save_path, single_channel_image, plugin='tifffile')
+
+
+if __name__ == '__main__':
+    extract_single_channels_from_mibitiff(sys.argv[1])
