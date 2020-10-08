@@ -1,0 +1,2 @@
+scikit-image~=0.16.2
+git+git://github.com/ionpath/mibilib@v1.2.6
