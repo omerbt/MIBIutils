@@ -19,6 +19,6 @@ https://www.python.org/downloads/
 # Run the script
 
 * open terminal from the project directory, and run this line:
-`bash start run.sh`
+`bash run.sh`
 
 * the script extracts all single-channel images from each MIBItiff file.
