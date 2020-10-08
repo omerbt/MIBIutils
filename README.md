@@ -14,7 +14,7 @@ https://www.python.org/downloads/
 
 # Add MIBItiff files to the input directory
 
-* put the MIBItiff files in 'data/MIBI'.
+* put the MIBItiff files in 'data/MIBI' (in the project directory).
 
 # Run the script
 
