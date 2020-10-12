@@ -2,7 +2,7 @@
 
 This repository includes utility functions for working with MIBI data.
 
-# Download the repository
+# Clone the repository
 
 * make sure you have Python (version 3.6 or above) installed.
 https://www.python.org/downloads/
